@@ -1,0 +1,97 @@
+'.source.json':
+  'JSON Schema Document':
+    'prefix': 'jschema'
+    'body': """
+        {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id" : "${1:https://api.doddle.com/schema/x.json}",
+            "type" : "object",
+            "title" : "$2",
+            "description" : "$3",
+            "required" : [$4],
+            "minProperties" : $5,
+            "maxProperties" : $6,
+            "additionalProperties" : ${7:false},
+            "properties" : {$8},
+            "definitions" : {}
+        \\}
+    """
+  'JSON Schema Object':
+    'prefix': 'jscobj'
+    'body': """
+        {
+            "type" : "object",
+            "title" : "$1",
+            "description" : "$2",
+            "required" : [$3],
+            "minProperties" : $4,
+            "maxProperties" : $5,
+            "additionalProperties" : ${6:false},
+            "properties" : {$7}
+        \\}
+    """
+  'JSON Schema String':
+    'prefix': 'jscstr'
+    'body': """
+        {
+            "type" : "string",
+            "title" : "$1",
+            "description" : "$2",
+            "minLength" : ${3:1},
+            "maxLength" : $4,
+            "pattern" : "$5",
+            "enum" : []
+        \\}
+    """
+  'JSON Schema Number':
+    'prefix': 'jscnum'
+    'body': """
+        {
+            "type" : "number",
+            "title" : "$1",
+            "description" : "$2",
+            "minimum" : $3,
+            "maximum" : $4
+        \\}
+    """
+  'JSON Schema Integer':
+    'prefix': 'jscint'
+    'body': """
+        {
+            "type" : "integer",
+            "title" : "$1",
+            "description" : "$2",
+            "minimum" : $3,
+            "maximum" : $4
+        \\}
+    """
+  'JSON Schema Array':
+    'prefix': 'jscarr'
+    'body': """
+        {
+            "type" : "array",
+            "title" : "$1",
+            "description" : "$2",
+            "minItems" : ${3:0},
+            "maxItems" : ${4:10},
+            "items" : {$5}
+        \\}
+    """
+  'JSON Schema Boolean':
+    'prefix': 'jscbool'
+    'body': """
+        {
+            "type" : "boolean",
+            "title" : "$1",
+            "description" : "$2"
+        \\}
+    """
+  'JSON Schema Null':
+    'prefix': 'jscnull'
+    'body': """
+        {
+            "type" : "null",
+            "title" : "$1",
+            "description" : "$2"
+        \\}
+    """
